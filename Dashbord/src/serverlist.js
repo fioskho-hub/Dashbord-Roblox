@@ -58,13 +58,25 @@ document.addEventListener("DOMContentLoaded", async () => {
         const serversGrid = document.getElementById('servers-grid');
         serversGrid.innerHTML = ""; 
 
-        const allGuilds = data.guilds;
+        const allGuilds = data.guilds.sort((a, b) => {
+        const rank = guild => {
+                const perms = BigInt(guild.permissions);
+                const isOwner = guild.owner === true;
+                const isAdmin = (perms & BigInt(0x8)) === BigInt(0x8);
+                if (isOwner) return 0;
+                if (isAdmin) return 1;
+                return 2;
+            };
+            return rank(a) - rank(b);
+        });
 
         if (allGuilds.length === 0) {
             serversGrid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: #99aab5;">Vous n'êtes inscrit sur aucun serveur Discord.</p>`;
         } else {
             allGuilds.forEach(guild => {
-                const isAdmin = (guild.permissions & 0x8) === 0x8 || (guild.permissions & 0x20) === 0x20;
+                const perms = BigInt(guild.permissions);
+                const isOwner = guild.owner === true;
+                const isAdmin = (perms & BigInt(0x8)) === BigInt(0x8);
 
                 const card = document.createElement('div');
                 card.classList.add('server-card');
