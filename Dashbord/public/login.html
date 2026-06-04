@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashbord Roblox - Connexion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="grid-container" class="grid-bg"></div>
+
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <i class="fa-solid fa-chart-line logo-icon"></i>
+                <h1>XeroDash</h1>
+                <p>Gestion de serveurs Roblox</p>
+            </div>
+
+          <a href="https://discord.com/oauth2/authorize?client_id=1511912248111665182&response_type=code&redirect_uri=http%3A%2F%2F127.0.0.1%3A5500%2Fpublic%2Fserverlist.html&scope=identify+guilds" style="text-decoration: none; width: 100%;">
+                <button id="login-btn" class="discord-btn">
+                    <i class="fa-brands fa-discord"></i>
+                    Se connecter avec Discord
+                </button>
+            </a>
+
+            <div class="login-footer">
+                <p>En vous connectant, vous acceptez nos conditions d'utilisation.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../src/login.js"></script>
+</body>
+</html>
