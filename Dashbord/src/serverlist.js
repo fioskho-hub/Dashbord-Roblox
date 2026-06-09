@@ -50,6 +50,13 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
 
+        // ==========================================
+        // 🎯 L'AJOUT SÉCURITÉ ICI : ON ENREGISTRE LES INFOS DE SESSION
+        // ==========================================
+        sessionStorage.setItem('xero_user', JSON.stringify(data.user));
+        sessionStorage.setItem('xero_guilds', JSON.stringify(data.guilds));
+
+        // Affichage des informations de l'utilisateur connecté
         document.getElementById('username').innerText = data.user.username;
         if (data.user.avatar) {
             document.getElementById('user-avatar').src = `https://cdn.discordapp.com/avatars/${data.user.id}/${data.user.avatar}.png`;
@@ -59,7 +66,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         serversGrid.innerHTML = ""; 
 
         const allGuilds = data.guilds.sort((a, b) => {
-        const rank = guild => {
+            const rank = guild => {
                 const perms = BigInt(guild.permissions);
                 const isOwner = guild.owner === true;
                 const isAdmin = (perms & BigInt(0x8)) === BigInt(0x8);
@@ -111,6 +118,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
         }
 
+        // Nettoie l'URL pour cacher le code d'authentification Discord sensible
         window.history.replaceState({}, document.title, window.location.pathname);
 
     } catch (err) {
