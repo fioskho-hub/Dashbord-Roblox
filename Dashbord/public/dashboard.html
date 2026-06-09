@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XeroDash - Gestion du Serveur</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="grid-container" class="grid-bg"></div>
+
+    <nav class="navbar">
+        <div class="nav-logo">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>XeroDash</span>
+            <span class="panel-badge">Panel</span>
+        </div>
+        <div class="nav-user">
+            <span id="username">Staff</span>
+            <img id="user-avatar" src="https://via.placeholder.com/40" alt="Avatar">
+        </div>
+    </nav>
+
+    <div class="main-layout">
+        
+        <aside class="sidebar">
+            <div class="sidebar-menu">
+                <a href="#" class="sidebar-item active" data-tab="overview">
+                    <i class="fa-solid fa-house"></i> Vue d'ensemble
+                </a>
+                <a href="#" class="sidebar-item" data-tab="moderation">
+                    <i class="fa-solid fa-gavel"></i> Modération
+                </a>
+                <a href="#" class="sidebar-item" data-tab="players">
+                    <i class="fa-solid fa-users"></i> Joueurs Roblox
+                </a>
+                <a href="#" class="sidebar-item" data-tab="staff">
+                    <i class="fa-solid fa-user-shield"></i> Rôles Staff
+                </a>
+            </div>
+            
+            <a href="serverlist.html" class="sidebar-back">
+                <i class="fa-solid fa-arrow-left"></i> Retour aux serveurs
+            </a>
+        </aside>
+
+        <main class="panel-content">
+            <header class="panel-header">
+                <h2 id="server-title">Chargement du serveur...</h2>
+                <p>ID du serveur : <span id="server-id-display" style="color: #5865F2; font-family: monospace;">...</span></p>
+            </header>
+
+            <div id="tab-content">
+                </div>
+        </main>
+
+    </div>
+
+    <script src="../src/dashboard.js"></script>
+</body>
+</html>

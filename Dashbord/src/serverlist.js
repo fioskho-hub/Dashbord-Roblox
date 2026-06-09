@@ -121,4 +121,5 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 function manageServer(guildId) {
     console.log("Accès au panel demandé pour le serveur ID :", guildId);
+    window.location.href = `dashboard.html?id=${guildId}`;
 }
